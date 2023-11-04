@@ -1,9 +1,8 @@
-import { useState } from 'react'
 import './App.css'
 import Sidebar from './common/Sidebar'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 
-import login from './components/login'
+import Login from './components/Login';
 
 // function App() {
 //   const [count, setCount] = useState(0)
@@ -18,7 +17,7 @@ import login from './components/login'
 const App =() => (
   <Router>
     <Routes>
-      <Route path="/login" element={<login/>} />
+      <Route path="/login" element={<Login/>} />
       <Route path ="/" element={<Sidebar/>} />
     </Routes>
   </Router>  
