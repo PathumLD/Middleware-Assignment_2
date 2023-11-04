@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import login from '../assets/login.jpg';
+import logo from '../assets/logo.png';
 
 export default function Login() {
   return (
     <div>
       <div className="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center px-5 py-5">
+      <img src={logo} alt="Logo" className="w-36 h-36 absolute top-5 left-5" /> {/* Logo here */}
         <div className="bg-indigo-200 text-gray-900 rounded-3xl shadow-xl w-full overflow-hidden" style={{ maxWidth: '1000px' }}>
           <div className="md:flex w-full">
             <div className="hidden md:block w-1/2 bg-indigo-500 py-10 px-10">
@@ -43,6 +45,9 @@ export default function Login() {
                   </div>
                   <p className="text-center text-gray-500">
                     Don't have an account? <Link to="/register" className="text-indigo-600">Register here</Link>
+                  </p>
+                  <p className="text-center text-gray-500">
+                    <Link to="/forgot-password" className="text-indigo-600">Forgot your password?</Link>
                   </p>
                 </div>
               </form>
