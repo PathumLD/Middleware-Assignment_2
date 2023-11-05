@@ -44,6 +44,17 @@ app.post('/login', (req, res) => {
     })
 });
 
+app.get('/services', (req, res) => {
+    const sql = "SELECT * FROM services"; 
+    db.query(sql, (err, data) => {
+        if (err) {
+            console.error("Error retrieving data:", err);
+            return res.json("Error");
+        }
+        return res.json(data);
+    });
+});
+
 app.put('/changepassword', (req, res) => {
     
     //retrieve the user from the database based on their email

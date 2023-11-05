@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import logo from "../assets/logo.png";
+import axios from "axios";
 
 export default function Services() {
-  // Sample telecommunication service packages data
-  const packages = [
-    { id: 1, name: "International Roaming", description: "Stay connected worldwide", usage: "Roaming", price: 499.00 },
-    { id: 2, name: "Data Unlimited", description: "Unlimited data for streaming and browsing", usage: "Data", price: 999.00 },
-    { id: 3, name: "Voice Plus", description: "Enhanced voice calling experience", usage: "Voice", price: 100.00 },
-    // Add more packages as needed
-  ];
+  const [packages, setPackages] = useState([]);
+
+  useEffect(() => {
+    // Make an Axios request to fetch data
+    axios.get("http://localhost:8081/services") // Replace with your actual API endpoint
+      .then((response) => {
+        setPackages(response.data); // Set the fetched data to the state
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
 
   return (
     <div className="w-[86%]" style={{ marginRight: "20px", marginLeft: "7%" }}>
@@ -53,7 +59,7 @@ export default function Services() {
           <table className="w-full text-sm text-left text-gray-500">
             <thead className="text-xs text-[#374151] uppercase bg-gray-50">
               <tr>
-              <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   Id
                 </th>
                 <th scope="col" className="px-6 py-3">
