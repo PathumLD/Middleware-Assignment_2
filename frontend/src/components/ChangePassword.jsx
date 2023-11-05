@@ -20,8 +20,9 @@ export default function ChangePassword() {
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleInput = (event) => {
-    setValues(prev => ({...prev, [event.target.name]: [event.target.value]}))
+    setValues(prev => ({...prev, [event.target.name]: event.target.value}))
   }
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,7 +30,7 @@ export default function ChangePassword() {
     // if(errors.email === "" && errors.password === "") {
       axios.put('http://localhost:8081/changepassword', values)
       .then(res => {
-        if(res.data === "Success") {
+        if(res.data === "Updated Password Successfully!") {
           console.log("Password changed successfully");
           navigate('/home');
         } else{

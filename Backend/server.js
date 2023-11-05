@@ -61,6 +61,7 @@ app.put('/changepassword', (req, res) => {
         const user = userData[0];
         // For debugging, display user.password in the console
         console.log("User's Password:", user.password);
+        console.log("Current Password:", req.body.currentPassword);
 
         // Check if the current password matches the one stored in the database
         if (user.password !== req.body.currentPassword) {
