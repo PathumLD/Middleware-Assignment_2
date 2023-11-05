@@ -1,23 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import logo from '../assets/logo.png';
 
 export default function services() {
   return (
-    <div
-      className="w-[86%]"
-      style={{
-        marginRight: "20px",
-        marginLeft: "7%",
-        marginTop: "130px",
-        textAlign: "center",
-      }}
-    >
+    <div className="w-[86%]" style={{ marginRight: "20px", marginLeft: "7%",  textAlign: "center" }}>
+      {/* Logo and Navigation Container */}
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <img src={logo} alt="Logo" className="w-36 h-36" />
+        </div>
+        <Link to="/home" className="text-indigo-600">
+          <FontAwesomeIcon icon={faHome} size="2x" />
+        </Link>
+      </div>
+
       <div className="">
         <div className="text-4xl mr-[70%] ">
           <h4>Telco Services Details</h4>
         </div>
 
-        <div className="pt-6 pb-6 ml-[77%] w-[20%] mt-[3%]">
+
+        <div className="pt-12 pb-6 ml-[77%] w-[20%] mt-[3%]">
           <form>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ml-[-24%]">
