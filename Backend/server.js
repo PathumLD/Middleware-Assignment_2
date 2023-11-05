@@ -13,6 +13,15 @@ const db = mysql.createConnection({
     database: "stl"
 })
 
+// Establish a database connection
+db.connect((err) => {
+  if (err) {
+    console.error("Error connecting to the database: " + err.stack);
+    return;
+  }
+  console.log("Connected to the database");
+});
+
 app.post('/register', (req, res) => {
     const sql = "INSERT INTO register (`name`, `phone`, `email`, `password`) VALUES (?)";
     const values = [
@@ -48,6 +57,21 @@ app.post('/login', (req, res) => {
         }
     })
 });
+
+app.get("/cartitem", (req, res) => {
+  const sql = "SELECT * FROM items";
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error("Error fetching cart items:", err);
+      return res.status(500).json({ message: "Internal Server Error" });
+    }
+
+    return res.status(200).json(results);
+  });
+});
+
+
+
 
 app.listen(8081, ()=> {
     console.log("listening. Server is running on port 8081");

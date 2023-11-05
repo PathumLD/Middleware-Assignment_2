@@ -40,28 +40,28 @@ export default function Login() {
 
   return (
     <div>
-      <div className="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center px-5 py-5">
-      <img src={logo} alt="Logo" className="w-36 h-36 absolute top-5 left-5" /> {/* Logo here */}
-        <div className="bg-indigo-200 text-gray-900 rounded-3xl shadow-xl w-full overflow-hidden" style={{ maxWidth: '1000px' }}>
-          <div className="md:flex w-full">
-            <div className="hidden md:block w-1/2 bg-indigo-500 py-10 px-10">
+      <div className="flex items-center justify-center min-h-screen px-5 py-5 bg-gray-100 min-w-screen">
+      <img src={logo} alt="Logo" className="absolute w-36 h-36 top-5 left-5" /> {/* Logo here */}
+        <div className="w-full overflow-hidden text-gray-900 bg-indigo-200 shadow-xl rounded-3xl" style={{ maxWidth: '1000px' }}>
+          <div className="w-full md:flex">
+            <div className="hidden w-1/2 px-10 py-10 bg-indigo-500 md:block">
               <img src={login} style={{ height: '100%', width: '100%' }} />
             </div>
-            <div className="w-full md:w-1/2 py-10 px-5 md:px-10">
+            <div className="w-full px-5 py-10 md:w-1/2 md:px-10">
               <form action="" onSubmit={handleSubmit}>
-                <div className="text-center mb-10">
-                  <h1 className="font-bold text-3xl text-gray-900">LOGIN</h1>
+                <div className="mb-10 text-center">
+                  <h1 className="text-3xl font-bold text-gray-900">LOGIN</h1>
                   <p>Enter your information to login</p>
                 </div>
                 <div>
                   <div className="flex -mx-3">
                     <div className="w-full px-3 mb-5">
-                      <label htmlFor="email" className="text-xs font-semibold px-1">Email</label>
+                      <label htmlFor="email" className="px-1 text-xs font-semibold">Email</label>
                       <div className="flex">
-                        <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i className="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
+                        <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none"><i className="text-lg text-gray-400 mdi mdi-email-outline"></i></div>
                         <input type="email" id="email" name='email'
                           onChange={handleInput}
-                          className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" 
+                          className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-indigo-500" 
                           placeholder="johnsmith@example.com" />
                       </div>
                       {errors.email && <span className='text-red-600'>{errors.email}</span>}
@@ -69,12 +69,12 @@ export default function Login() {
                   </div>
                   <div className="flex -mx-3">
                     <div className="w-full px-3 mb-12">
-                      <label htmlFor="password" className="text-xs font-semibold px-1">Password</label>
+                      <label htmlFor="password" className="px-1 text-xs font-semibold">Password</label>
                       <div className="flex">
-                        <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i className="mdi mdi-lock-outline text-gray-400 text-lg"></i></div>
+                        <div className="z-10 flex items-center justify-center w-10 pl-1 text-center pointer-events-none"><i className="text-lg text-gray-400 mdi mdi-lock-outline"></i></div>
                         <input type="password" id="password" name='password'
                           onChange={handleInput}
-                          className="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" 
+                          className="w-full py-2 pl-10 pr-3 -ml-10 border-2 border-gray-200 rounded-lg outline-none focus:border-indigo-500" 
                           placeholder="************" />
                       </div>
                       {errors.password && <span className='text-red-600'>{errors.password}</span>}
@@ -82,7 +82,7 @@ export default function Login() {
                   </div>
                   <div className="flex -mx-3">
                     <div className="w-full px-3 mb-5">
-                      <button type='submit' className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">LOGIN</button>
+                      <button type='submit' className="block w-full max-w-xs px-3 py-3 mx-auto font-semibold text-white bg-indigo-500 rounded-lg hover:bg-indigo-700 focus:bg-indigo-700">LOGIN</button>
                     </div>
                   </div>
                   <p className="text-center text-gray-500">
