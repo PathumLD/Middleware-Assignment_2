@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function services() {
   return (
@@ -55,8 +56,8 @@ export default function services() {
           </form>
         </div>
 
-        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-8 mt-2">
-          <table className="w-full text-sm text-left text-gray-500  ">
+        <div className="relative mt-2 ml-8 overflow-x-auto shadow-md sm:rounded-b-lg">
+          <table className="w-full text-sm text-left text-gray-500 ">
             <thead className="text-xs text-[#374151] uppercase bg-gray-50 ">
               <tr>
                 <th scope="col" className="px-6 py-3">
@@ -83,7 +84,7 @@ export default function services() {
 
                 <td className="px-4 py-4">
                   <div className="">
-                    <button
+                    <Link to = '/cartitem'
                       type="button"
                       className="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 
                     rounded-md px-2 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
@@ -102,7 +103,7 @@ export default function services() {
                       >
                         Activate
                       </div>
-                    </button>
+                    </Link>
 
                     <button
                       type="button"
@@ -136,7 +137,7 @@ export default function services() {
 
                 <td className="px-4 py-4">
                   <div className="">
-                    <button
+                    <Link to = '/cartitem'
                       type="button"
                       className="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 
                     rounded-md px-2 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
@@ -155,7 +156,7 @@ export default function services() {
                       >
                         Activate
                       </div>
-                    </button>
+                    </Link>
 
                     <button
                       type="button"
@@ -189,7 +190,7 @@ export default function services() {
 
                 <td className="px-4 py-4">
                   <div className="">
-                    <button
+                    <Link to = '/cartitem'
                       type="button"
                       className="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 
                     rounded-md px-2 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
@@ -208,7 +209,7 @@ export default function services() {
                       >
                         Activate
                       </div>
-                    </button>
+                    </Link>
 
                     <button
                       type="button"
@@ -242,7 +243,7 @@ export default function services() {
 
                 <td className="px-4 py-4">
                   <div className="">
-                    <button
+                    <Link to = '/cartitem'
                       type="button"
                       className="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 
                     rounded-md px-2 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
@@ -261,7 +262,7 @@ export default function services() {
                       >
                         Activate
                       </div>
-                    </button>
+                    </Link>
 
                     <button
                       type="button"
@@ -295,7 +296,7 @@ export default function services() {
 
                 <td className="px-4 py-4">
                   <div className="">
-                    <button
+                    <Link to = '/cartitem'
                       type="button"
                       className="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 
                     rounded-md px-2 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
@@ -314,7 +315,7 @@ export default function services() {
                       >
                         Activate
                       </div>
-                    </button>
+                    </Link>
 
                     <button
                       type="button"
