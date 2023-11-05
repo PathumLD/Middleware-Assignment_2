@@ -18,7 +18,7 @@ export default function Home() {
             <p className="text-gray-700">View current and past bills</p>
           </div>
         </Link>
-        <Link to="/payments">
+        <Link to="/payment">
           <div className="bg-yellow-200 p-4 rounded-lg shadow-md hover:shadow-lg cursor-pointer">
             <h2 className="text-xl font-semibold text-yellow-900">Payments</h2>
             <p className="text-gray-700">Pay for bills online using credit and debit cards</p>
