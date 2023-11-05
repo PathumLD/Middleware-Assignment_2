@@ -29,7 +29,7 @@ const App =() => (
       <Route path ="/" element={<Sidebar/>} />
       <Route path = "/services" element={<Services/>} />
       <Route path = "/bills" element={<Bills/>} />
-     </Routes>
+    </Routes>
   </Router>  
 )
 
