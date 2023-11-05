@@ -33,7 +33,8 @@ export default function Services() {
     axios.post("http://localhost:8081/activateService", pkg)
       .then((response) => {
         console.log("success", response.data); // Service activated successfully
-        // You can update your UI or show a success message here
+        // Redirect to the cartitem page if activation is successful
+        window.location = "/cartitem";
       })
       .catch((error) => {
         console.error("Error activating service:", error);
