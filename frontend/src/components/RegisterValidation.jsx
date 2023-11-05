@@ -1,14 +1,13 @@
 function Validation(values) {
-    let error = {}
-    const email_pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    const password_pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/
+    let error = {};
+    const email_pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const password_pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
     const phone_pattern = /^\d{10}$/;
 
-    if(values.name === "") {
-        error.name = "Name should not be empty"
-    }
-    else {
-        error.name =  ""
+    if (values.name === "") {
+        error.name = "Name should not be empty";
+    } else {
+        error.name =  "";
     }
 
     if (values.phone === "") {
@@ -19,23 +18,22 @@ function Validation(values) {
         error.phone = "";
     }
 
-    if(values.email === "") {
-        error.email = "Email should not be empty"
-    }
-    else if (!email_pattern.test(values.email)) {
-        error.email = "Please enter a valid email"
+    if (values.email === "") {
+        error.email = "Email should not be empty";
+    } else if (!email_pattern.test(values.email)) {
+        error.email = "Please enter a valid email";
     } else {
-        error.email =  ""
+        error.email =  "";
     }
 
-    if(values.password === "") {
-        error.password = "Password should not be empty"
-    }
-    else if (!password_pattern.test(values.password)) {
-        error.password = "Please enter a valid password"
+    if (values.password === "") {
+        error.password = "Password should not be empty";
+    } else if (!password_pattern.test(values.password)) {
+        error.password = "Password should contain at least 8 characters, including a combination of uppercase letters, lowercase letters, and numbers";
     } else {
-        error.password =  ""
+        error.password =  "";
     }
+
     return error;
 }
 
