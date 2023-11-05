@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const PaymentConfirmation = () => {
@@ -23,12 +24,11 @@ const PaymentConfirmation = () => {
           </p>
           <p>Have a great day!</p>
           <div className="py-10 text-center">
-            <a
-              href="#"
+            <Link to =''
               className="px-12 py-3 font-semibold text-white bg-indigo-600 hover:bg-indigo-500"
             >
               GO BACK
-            </a>
+            </Link>
           </div>
         </div>
       </div>
