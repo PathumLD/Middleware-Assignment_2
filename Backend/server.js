@@ -114,6 +114,18 @@ app.post('/activateService', (req, res) => {
     });
 });
 
+
+app.get('/bills', (req, res) => {
+    const sql = "SELECT * FROM bills"; 
+    db.query(sql, (err, data) => {
+        if (err) {
+            console.error("Error retrieving data:", err);
+            return res.json("Error");
+        }
+        return res.json(data);
+    });
+});
+
 // Establish a database connection
 db.connect((err) => {
     if (err) {

@@ -1,10 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import logo from "../assets/logo.png";
+import axios from "axios";
 
 const BillInfo = () => {
+  const [packages, setPackages] = useState([]);
+
+  useEffect(() => {
+    // Make an Axios request to fetch data
+    axios
+      .get("http://localhost:8081/bills") // Replace with your actual API endpoint
+      .then((response) => {
+        setPackages(response.data); // Set the fetched data to the state
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const formattedDate = new Intl.DateTimeFormat("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(date);
+
+    return formattedDate;
+  };
+
   return (
     <div className="w-[86%] mx-auto mt-12">
       {/* Logo and Navigation Container */}
@@ -33,50 +59,22 @@ const BillInfo = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white border-b">
-                <td className="px-6 py-4 whitespace-nowrap">006</td>
-                <td className="px-6 py-4">1006</td>
-                <td className="px-6 py-4">12000</td>
-                <td className="px-6 py-4">10.25.2023</td>
-                <td className="px-6 py-4">
-                  <Link to="/cartitem" className="text-blue-600 hover:underline">
-                    Pay Now
-                  </Link>
-                </td>
-              </tr>
-              <tr className="bg-white border-b">
-                <td className="px-6 py-4 whitespace-nowrap">007</td>
-                <td className="px-6 py-4">1007</td>
-                <td className="px-6 py-4">7000</td>
-                <td className="px-6 py-4">11.2.2023</td>
-                <td className="px-6 py-4">
-                  <Link to="/cartitem" className="text-blue-600 hover:underline">
-                    Pay Now
-                  </Link>
-                </td>
-              </tr>
-              <tr className="bg-white border-b">
-                <td className="px-6 py-4 whitespace-nowrap">008</td>
-                <td className="px-6 py-4">1008</td>
-                <td className="px-6 py-4">22000</td>
-                <td className="px-6 py-4">11.1.2023</td>
-                <td className="px-6 py-4">
-                  <Link to="/cartitem" className="text-blue-600 hover:underline">
-                    Pay Now
-                  </Link>
-                </td>
-              </tr>
-              <tr className="bg-white border-b">
-                <td className="px-6 py-4 whitespace-nowrap">009</td>
-                <td className="px-6 py-4">1009</td>
-                <td className="px-6 py-4">11000</td>
-                <td className="px-6 py-4">11.5.2023</td>
-                <td className="px-6 py-4">
-                  <Link to="/cartitem" className="text-blue-600 hover:underline">
-                    Pay Now
-                  </Link>
-                </td>
-              </tr>
+              {packages.map((pkg, index) => (
+                <tr key={index} className="bg-white border-b">
+                  <td className="px-6 py-4 whitespace-nowrap">{pkg.bill_id}</td>
+                  <td className="px-6 py-4">{pkg.users}</td>
+                  <td className="px-6 py-4">{pkg.amount}</td>
+                  <td className="px-6 py-4"> {formatDate(pkg.date)} </td>
+                  <td className="px-6 py-4">
+                    <Link
+                      to="/cartitem"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Pay Now
+                    </Link>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -96,27 +94,22 @@ const BillInfo = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white border-b">
-                <td className="px-6 py-4 whitespace-nowrap">001</td>
-                <td className="px-6 py-4">1001</td>
-                <td className="px-6 py-4">10000</td>
-                <td className="px-6 py-4">10.25.2023</td>
-                <td className="px-6 py-4 font-bold text-green-500">Paid</td>
-              </tr>
-              <tr className="bg-white border-b">
-                <td className="px-6 py-4 whitespace-nowrap">002</td>
-                <td className="px-6 py-4">1002</td>
-                <td className="px-6 py-4">5000</td>
-                <td className="px-6 py-4">10.15.2023</td>
-                <td className="px-6 py-4 font-bold text-green-500">Paid</td>
-              </tr>
-              <tr className="bg-white border-b">
-                <td className="px-6 py-4 whitespace-nowrap">003</td>
-                <td className="px-6 py-4">1003</td>
-                <td className="px-6 py-4">14000</td>
-                <td className="px-6 py-4">9.05.2023</td>
-                <td className="px-6 py-4 font-bold text-green-500">Paid</td>
-              </tr>
+              {packages.map(
+                (
+                  bill,
+                  index // Assuming pastBills is a different array for past bills
+                ) => (
+                  <tr key={index} className="bg-white border-b">
+                    <th className="px-6 py-4 whitespace-nowrap">
+                      {bill.bill_id}
+                    </th>
+                    <td className="px-6 py-4">{bill.users}</td>
+                    <td className="px-6 py-4">{bill.amount}</td>
+                    <td className="px-6 py-4">{formatDate(bill.date)}</td>
+                    <td className="px-6 py-4 font-bold text-green-500">Paid</td>
+                  </tr>
+                )
+              )}
             </tbody>
           </table>
         </div>
