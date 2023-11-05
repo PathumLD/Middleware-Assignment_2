@@ -13,7 +13,7 @@ export default function Register() {
             <img src={register} style={{ height: '100%', width: '100%' }} />
           </div>
           <div className="w-full md:w-1/2 py-10 px-5 md:px-10">
-            <form>
+            <form action="">
               <div className="text-center mb-10">
                 <h1 className="font-bold text-3xl text-gray-900">REGISTER</h1>
                 <p>Enter your information to register</p>
