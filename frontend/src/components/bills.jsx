@@ -40,12 +40,48 @@ export default function bills() {
             </thead>
             <tbody>
               <tr className="bg-white border-b">
-                <th className="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white ml-[10%]">
-                  hj
+                <th
+                  
+                  className="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white ml-[10%]"
+                >
+                  006
                 </th>
-                <td className="px-6 py-4">hj</td>
-                <td className="px-6 py-4 "> hj</td>
-                <td className="px-6 py-4 ">hj</td>
+                <td className="px-6 py-4">1006</td>
+                <td className="px-6 py-4 "> 12000</td>
+                <td className="px-6 py-4 ">10.25.2023</td>
+              </tr>
+              <tr className="bg-white border-b">
+                <th
+                  
+                  className="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white ml-[10%]"
+                >
+                  007
+                </th>
+                <td className="px-6 py-4">1007</td>
+                <td className="px-6 py-4 "> 7000</td>
+                <td className="px-6 py-4 ">11.2.2023</td>
+              </tr>
+              <tr className="bg-white border-b">
+                <th
+                  
+                  className="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white ml-[10%]"
+                >
+                  008
+                </th>
+                <td className="px-6 py-4">1008</td>
+                <td className="px-6 py-4 "> 22000</td>
+                <td className="px-6 py-4 ">11.1.2023</td>
+              </tr>
+              <tr className="bg-white border-b">
+                <th
+                  
+                  className="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white ml-[10%]"
+                >
+                  009
+                </th>
+                <td className="px-6 py-4">1009</td>
+                <td className="px-6 py-4 "> 11000</td>
+                <td className="px-6 py-4 ">11.5.2023</td>
               </tr>
             </tbody>
           </table>
@@ -72,21 +108,46 @@ export default function bills() {
                   User ID
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Amount
+                 Amount
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Date
                 </th>
+                
               </tr>
             </thead>
             <tbody>
               <tr className="bg-white border-b">
                 <th className="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white ml-[10%]">
-                  hj
+                  001
                 </th>
-                <td className="px-6 py-4">bj</td>
-                <td className="px-6 py-4 "> hj</td>
-                <td className="px-6 py-4 ">hj</td>
+                <td className="px-6 py-4">1001</td>
+                <td className="px-6 py-4 "> 10000</td>
+                <td className="px-6 py-4 ">10.25.2023</td>
+              </tr>
+              <tr className="bg-white border-b">
+                <th className="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white ml-[10%]">
+                  001
+                </th>
+                <td className="px-6 py-4">1001</td>
+                <td className="px-6 py-4 "> 10000</td>
+                <td className="px-6 py-4 ">10.25.2023</td>
+              </tr>
+              <tr className="bg-white border-b">
+                <th className="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white ml-[10%]">
+                  002
+                </th>
+                <td className="px-6 py-4">1002</td>
+                <td className="px-6 py-4 "> 5000</td>
+                <td className="px-6 py-4 ">10.15.2023</td>
+              </tr>
+              <tr className="bg-white border-b">
+                <th className="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white ml-[10%]">
+                  001
+                </th>
+                <td className="px-6 py-4">1003</td>
+                <td className="px-6 py-4 "> 14000</td>
+                <td className="px-6 py-4 ">9.05.2023</td>
               </tr>
             </tbody>
           </table>
