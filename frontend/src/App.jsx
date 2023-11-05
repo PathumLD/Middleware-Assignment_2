@@ -5,6 +5,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import Login from './components/Login';
 import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
+import Services from './components/services';
 
 // function App() {
 //   const [count, setCount] = useState(0)
@@ -23,7 +24,8 @@ const App =() => (
       <Route path="/register" element = {<Register/>} />
       <Route path="/forgot-password" element = {<ForgotPassword/>} />
       <Route path ="/" element={<Sidebar/>} />
-    </Routes>
+      <Route path = "/services" element={<Services/>} />
+     </Routes>
   </Router>  
 )
 
