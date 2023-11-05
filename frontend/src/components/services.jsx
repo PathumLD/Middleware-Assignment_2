@@ -19,6 +19,29 @@ export default function Services() {
       });
   }, []);
 
+  const handleActivateService = (pkg) => {
+    // Check if any required values are missing or null
+    if (!pkg.id || !pkg.name || !pkg.description || pkg.price === null) {
+      console.error("Invalid package data:", pkg);
+      // Handle the error and show an error message or return without making the API request
+      return;
+    }
+  
+    // Log the details of the pkg object
+    console.log("Package to Activate:", pkg);
+  
+    axios.post("http://localhost:8081/activateService", pkg)
+      .then((response) => {
+        console.log("success", response.data); // Service activated successfully
+        // You can update your UI or show a success message here
+      })
+      .catch((error) => {
+        console.error("Error activating service:", error);
+        // Handle the error and show an error message
+      });
+  };
+
+
   return (
     <div className="w-[86%]" style={{ marginRight: "20px", marginLeft: "7%" }}>
       {/* Logo and Navigation Container */}
@@ -92,6 +115,7 @@ export default function Services() {
                     <div className="space-x-4">
                       <button
                         type="button"
+                        onClick={() => handleActivateService(pkg)}
                         className="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md px-3 py-2.5 bg-blue-600 hover-bg-blue-700"
                       >
                         Activate

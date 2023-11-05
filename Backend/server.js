@@ -95,6 +95,25 @@ app.put('/changepassword', (req, res) => {
 
 });
 
+app.post('/activateService', (req, res) => {
+    const { serviceID, title, description, price } = req.body;
+
+    if (!serviceID || !title || !description || price === null) {
+        return res.status(400).json({ message: "Invalid data for activation" });
+    }
+
+    const sql = "INSERT INTO items (`serviceID`, `title`, `description`, `price`) VALUES (?, ?, ?, ?)";
+    const values = [serviceID, title, description, price];
+
+    db.query(sql, values, (err, data) => {
+        if (err) {
+            console.error("Error activating service:", err);
+            return res.status(500).json({ message: "Error activating service" });
+        }
+        return res.status(200).json({ message: "Service activated successfully" });
+    });
+});
+
 // Establish a database connection
 db.connect((err) => {
     if (err) {
