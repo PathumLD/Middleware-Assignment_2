@@ -40,15 +40,10 @@ app.post('/register', (req, res) => {
 
 app.post('/login', (req, res) => {
     const sql = "SELECT * FROM register WHERE `email` = ? AND `password` = ? ";
-    const values = [
-        req.body.name,
-        req.body.phone,
-        req.body.email,
-        req.body.password
-    ]
+
     db.query(sql, [req.body.email, req.body.password], (err, data) => {
         if (err) {
-            return res.json("Error");
+            return res.json("Error"); 
         }
         if(data.length > 0) {
             return res.json("Success");
@@ -69,9 +64,6 @@ app.get("/cartitem", (req, res) => {
     return res.status(200).json(results);
   });
 });
-
-
-
 
 app.listen(8081, ()=> {
     console.log("listening. Server is running on port 8081");
