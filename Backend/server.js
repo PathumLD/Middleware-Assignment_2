@@ -96,14 +96,21 @@ app.put('/changepassword', (req, res) => {
 });
 
 app.post('/activateService', (req, res) => {
-    const { serviceID, title, description, price } = req.body;
-
-    if (!serviceID || !title || !description || price === null) {
-        return res.status(400).json({ message: "Invalid data for activation" });
-    }
 
     const sql = "INSERT INTO items (`serviceID`, `title`, `description`, `price`) VALUES (?, ?, ?, ?)";
-    const values = [serviceID, title, description, price];
+    const values = [
+        req.body.id, 
+        req.body.name, 
+        req.body.description, 
+        req.body.price
+    ];
+
+    // Log the data from the request body
+    console.log("Data from Request Body:", req.body);
+    console.log("serviceID:", req.body.id);
+    console.log("title:", req.body.name);
+    console.log("description:", req.body.description);
+    console.log("price:", req.body.price);
 
     db.query(sql, values, (err, data) => {
         if (err) {
@@ -111,6 +118,18 @@ app.post('/activateService', (req, res) => {
             return res.status(500).json({ message: "Error activating service" });
         }
         return res.status(200).json({ message: "Service activated successfully" });
+    });
+});
+
+
+app.get('/bills', (req, res) => {
+    const sql = "SELECT * FROM bills"; 
+    db.query(sql, (err, data) => {
+        if (err) {
+            console.error("Error retrieving data:", err);
+            return res.json("Error");
+        }
+        return res.json(data);
     });
 });
 
