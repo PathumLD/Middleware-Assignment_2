@@ -166,6 +166,17 @@ app.get('/items', (req, res) => {
   });
 });
 
+app.get('/bills', (req, res) => {
+    const sql = "SELECT * FROM bills"; 
+    db.query(sql, (err, data) => {
+        if (err) {
+            console.error("Error retrieving data:", err);
+            return res.json("Error");
+        }
+        return res.json(data);
+    });
+});
+
 
 app.listen(8081, ()=> {
     console.log("listening. Server is running on port 8081");

@@ -7,6 +7,8 @@ import axios from "axios";
 
 const BillInfo = () => {
   const [packages, setPackages] = useState([]);
+  const currentBills = packages.filter((pkg) => pkg.status !== 1);
+const pastBills = packages.filter((pkg) => pkg.status === 1);
 
   useEffect(() => {
     // Make an Axios request to fetch data
@@ -34,7 +36,7 @@ const BillInfo = () => {
   return (
     <div className="w-[86%] mx-auto mt-12">
       {/* Logo and Navigation Container */}
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex items-center justify-between mb-6">
         <div>
           <img src={logo} alt="Logo" className="w-36 h-36" />
         </div>
@@ -43,11 +45,11 @@ const BillInfo = () => {
         </Link>
       </div>
 
-      <div className="text-3xl font-bold text-center mb-8">Bills Info</div>
+      <div className="mb-8 text-3xl font-bold text-center">Bills Info</div>
 
       <div className="mt-8">
-        <div className="text-xl font-semibold mb-2">Current Bills</div>
-        <div className="relative overflow-x-auto shadow-md rounded-b-lg">
+        <div className="mb-2 text-xl font-semibold">Current Bills</div>
+        <div className="relative overflow-x-auto rounded-b-lg shadow-md">
           <table className="w-full text-left text-gray-500 border-collapse">
             <thead className="bg-gray-50">
               <tr>
@@ -59,7 +61,7 @@ const BillInfo = () => {
               </tr>
             </thead>
             <tbody>
-              {packages.map((pkg, index) => (
+              {currentBills.map((pkg, index) => (
                 <tr key={index} className="bg-white border-b">
                   <td className="px-6 py-4 whitespace-nowrap">{pkg.bill_id}</td>
                   <td className="px-6 py-4">{pkg.users}</td>
@@ -81,8 +83,8 @@ const BillInfo = () => {
       </div>
 
       <div className="mt-16">
-        <div className="text-xl font-semibold mb-2">Past Bills</div>
-        <div className="relative overflow-x-auto shadow-md rounded-b-lg">
+        <div className="mb-2 text-xl font-semibold">Past Bills</div>
+        <div className="relative overflow-x-auto rounded-b-lg shadow-md">
           <table className="w-full text-left text-gray-500 border-collapse">
             <thead className="bg-gray-50">
               <tr>
@@ -94,7 +96,7 @@ const BillInfo = () => {
               </tr>
             </thead>
             <tbody>
-              {packages.map(
+              {pastBills.map(
                 (
                   bill,
                   index // Assuming pastBills is a different array for past bills
