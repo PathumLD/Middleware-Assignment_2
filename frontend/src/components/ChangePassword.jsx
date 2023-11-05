@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 export default function ChangePassword() {
   const [formData, setFormData] = useState({
@@ -25,7 +28,10 @@ export default function ChangePassword() {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
+    <div className="bg-gray-100 min-h-screen flex flex-col items-center justify-center relative">
+      <Link to="/home" className="absolute top-4 right-4 text-indigo-600">
+        <FontAwesomeIcon icon={faHome} size="2x" />
+      </Link>
       <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Change Password</h1>
       <form onSubmit={handleSubmit} className="max-w-md bg-white p-8 rounded-lg shadow-md">
         <div className="mb-4">
@@ -49,7 +55,7 @@ export default function ChangePassword() {
             name="newPassword"
             value={formData.newPassword}
             onChange={handleChange}
-            className="w-full mt-1 p-2 rounded-md border border-gray-300 focus:border-indigo-500"
+            className="w-full mt-1 p-2 rounded-md border border-gray-300 focus-border-indigo-500"
           />
         </div>
         <div className="mb-4">
@@ -61,7 +67,7 @@ export default function ChangePassword() {
             name="confirmNewPassword"
             value={formData.confirmNewPassword}
             onChange={handleChange}
-            className="w-full mt-1 p-2 rounded-md border border-gray-300 focus:border-indigo-500"
+            className="w-full mt-1 p-2 rounded-md border border-gray-300 focus-border-indigo-500"
           />
         </div>
         <button
