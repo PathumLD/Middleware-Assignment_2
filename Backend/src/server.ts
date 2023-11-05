@@ -1,25 +1,20 @@
-import express from "express";
-import { Request, Response } from "express";
-import bodyParser from "body-parser";
-import cors from "cors";
-import { config } from "../config";
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const config = require("../config");
 
-import leavesRoutes from "./routes/leaves";
+const leavesRoutes = require("./routes/leaves");
 
 const app = express();
 
 app.use(cors());
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//leave
 app.use("/leaves", leavesRoutes);
 
+const port = config.server.port || 3000; // Use the default port 3000 if config.server.port is not defined.
 
-
-const port = config.server.port;
-
-app.listen(port,  () => {
-  console.log(`server is running on port ${port}.`);
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}.`);
 });
