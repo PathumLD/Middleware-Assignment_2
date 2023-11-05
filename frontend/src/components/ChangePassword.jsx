@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
+import logo from '../assets/logo.png';
 
 export default function ChangePassword() {
   const [formData, setFormData] = useState({
@@ -29,6 +30,7 @@ export default function ChangePassword() {
 
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col items-center justify-center relative">
+        <img src={logo} alt="Logo" className="w-36 h-36 absolute top-4 left-4" />
       <Link to="/home" className="absolute top-4 right-4 text-indigo-600">
         <FontAwesomeIcon icon={faHome} size="2x" />
       </Link>
