@@ -1,17 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import logo from '../assets/logo.png';
 
 export default function bills() {
   return (
-    <div
-      className="w-[86%]"
-      style={{
-        marginRight: "10px",
-        marginLeft: "5%",
-        marginTop: "170px",
-        textAlign: "center",
-      }}
-    >
+    <div className="w-[86%]" style={{ marginRight: "20px", marginLeft: "7%",  textAlign: "center" }}>
+      {/* Logo and Navigation Container */}
+      <div className="flex justify-between items-center mb-6">
+        <div>
+          <img src={logo} alt="Logo" className="w-36 h-36" />
+        </div>
+        <Link to="/home" className="text-indigo-600">
+          <FontAwesomeIcon icon={faHome} size="2x" />
+        </Link>
+      </div>
+      
          <div className="text-4xl mr-[80%] mt-[-5%]">
           <h4>Bills info</h4>
         </div>
