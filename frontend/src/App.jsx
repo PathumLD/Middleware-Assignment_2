@@ -12,6 +12,7 @@ import CartItem from './pages/CartItem';
 import Payments from './pages/Payments';
 import PaymentConfirmation from './pages/PaymentConfirmation';
 import ChangePassword from './components/ChangePassword';
+import LandingPage from './pages/LandingPage';
 
 // function App() {
 //   const [count, setCount] = useState(0)
@@ -30,7 +31,7 @@ const App =() => (
       <Route path="/register" element = {<Register/>} />
       <Route path="/forgot-password" element = {<ForgotPassword/>} />
       <Route path="/home" element = {<Home/>} />
-      <Route path ="/" element={<Sidebar/>} />
+      <Route path ="/" element={<LandingPage/>} />
       <Route path = "/services" element={<Services/>} />
       <Route path="/bills" element={<Bills />} />
       <Route path="/cartitem" element={<CartItem />} />
