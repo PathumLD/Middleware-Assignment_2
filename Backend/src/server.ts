@@ -1,24 +1,20 @@
-import express from "express";
-import cors from "cors";
-import { config } from "../config";
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const config = require("../config");
 
-import LoginRoutes from "./routes/login";
-import RegisterRoutes from "./routes/register";
+const leavesRoutes = require("./routes/leaves");
 
 const app = express();
+
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// const db = mysql.createConnection({
-//     host: "localhost",
-//     user: "root",
-//     password: "",
-//     database: "stl"
-// })
+app.use("/leaves", leavesRoutes);
 
-app.use("/login", LoginRoutes);
-app.use("/register", RegisterRoutes);
+const port = config.server.port || 3000; // Use the default port 3000 if config.server.port is not defined.
 
-app.listen(8081, ()=> {
-    console.log("listening. Server is running on port 8081");
-})
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}.`);
+});
