@@ -135,6 +135,19 @@ app.get("/cartitem", (req, res) => {
   });
 });
 
+app.get('/items', (req, res) => {
+  const sql = 'SELECT price FROM items'; // Adjust the SQL query as needed
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Error fetching items:', err);
+      return res.status(500).json({ message: 'Internal Server Error' });
+    }
+
+    return res.status(200).json(results);
+  });
+});
+
+
 app.listen(8081, ()=> {
     console.log("listening. Server is running on port 8081");
 })
