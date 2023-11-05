@@ -13,15 +13,6 @@ const db = mysql.createConnection({
     database: "stl"
 })
 
-// Establish a database connection
-db.connect((err) => {
-  if (err) {
-    console.error("Error connecting to the database: " + err.stack);
-    return;
-  }
-  console.log("Connected to the database");
-});
-
 app.post('/register', (req, res) => {
     const sql = "INSERT INTO register (`name`, `phone`, `email`, `password`) VALUES (?)";
     const values = [
@@ -52,6 +43,66 @@ app.post('/login', (req, res) => {
         }
     })
 });
+
+app.get('/services', (req, res) => {
+    const sql = "SELECT * FROM services"; 
+    db.query(sql, (err, data) => {
+        if (err) {
+            console.error("Error retrieving data:", err);
+            return res.json("Error");
+        }
+        return res.json(data);
+    });
+});
+
+app.put('/changepassword', (req, res) => {
+    
+    //retrieve the user from the database based on their email
+    const selectUserSQL = "SELECT * FROM register WHERE email = ?";
+    db.query(selectUserSQL, [req.body.email], (selectUserErr, userData) => {
+        if (selectUserErr) {
+            console.error("Error retrieving user data:", selectUserErr);
+            return res.json("Error");
+        }
+        if (userData.length === 0) {
+            console.error("User not found");
+            return res.json("user not found");
+        }
+
+        const user = userData[0];
+        // For debugging, display user.password in the console
+        console.log("User's Password:", user.password);
+        console.log("Current Password:", req.body.currentPassword);
+
+        // Check if the current password matches the one stored in the database
+        if (user.password !== req.body.currentPassword) {
+            console.error("Current password is incorrect");
+            return res.json('Current password is incorrect' );
+        }
+
+        // Update the password to the new one
+        const sql = "UPDATE register SET `password`= ? WHERE email = ? ";
+        db.query(sql, [req.body.newPassword, req.body.email], (err, updatedData) => {
+            if (err) {
+                console.error("Failed to update password:", err);
+                return res.json("Failed to update password");
+            } else {
+                console.log("Password updated successfully");
+                return res.json("Updated Password Successfully!");
+            }
+        });
+    });
+
+});
+
+// Establish a database connection
+db.connect((err) => {
+    if (err) {
+      console.error("Error connecting to the database: " + err.stack);
+      return;
+    }
+    console.log("Connected to the database");
+  });
 
 app.get("/cartitem", (req, res) => {
   const sql = "SELECT * FROM items";
