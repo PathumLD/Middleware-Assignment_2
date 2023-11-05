@@ -11,6 +11,7 @@ import Home from './components/Home';
 import CartItem from './pages/CartItem';
 import Payments from './pages/Payments';
 import PaymentConfirmation from './pages/PaymentConfirmation';
+import ChangePassword from './components/ChangePassword';
 
 // function App() {
 //   const [count, setCount] = useState(0)
@@ -35,6 +36,7 @@ const App =() => (
       <Route path="/cartitem" element={<CartItem />} />
       <Route path="/payment" element={<Payments />} />
       <Route path="/paymentconfirmation" element={<PaymentConfirmation />} />
+      <Route path='/changepassword' element={<ChangePassword />} />
      </Routes>
   </Router>  
 )
