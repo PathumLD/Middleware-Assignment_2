@@ -12,8 +12,8 @@ export default function bills() {
         textAlign: "center",
       }}
     >
-         <div className="text-4xl mr-[70%] mt-[-5%]">
-          <h4>Telco Services Details</h4>
+         <div className="text-4xl mr-[80%] mt-[-5%]">
+          <h4>Bills info</h4>
         </div>
 
       <div className="mt-[3%]">
