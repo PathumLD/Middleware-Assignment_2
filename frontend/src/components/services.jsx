@@ -59,7 +59,7 @@ export default function services() {
           <table className="w-full text-sm text-left text-gray-500  ">
             <thead className="text-xs text-[#374151] uppercase bg-gray-50 ">
               <tr>
-                <th scope="col" className="px-10 py-3">
+                <th scope="col" className="px-6 py-3">
                   ServiceS
                 </th>
                 <th scope="col" className="px-6 py-3">
