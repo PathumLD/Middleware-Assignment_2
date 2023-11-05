@@ -5,13 +5,17 @@ export default function bills() {
     <div
       className="w-[86%]"
       style={{
-        marginRight: "20px",
+        marginRight: "10px",
         marginLeft: "5%",
-        marginTop: "220px",
+        marginTop: "170px",
         textAlign: "center",
       }}
     >
-      <div className="">
+         <div className="text-4xl mr-[70%] mt-[-5%]">
+          <h4>Telco Services Details</h4>
+        </div>
+
+      <div className="mt-[3%]">
         {/* Table for 'approve' status */}
         <div style={{ display: "flex" }}>
           <div style={{ fontWeight: "bold", paddingLeft: "100px" }}>
