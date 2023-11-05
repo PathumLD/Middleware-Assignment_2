@@ -6,9 +6,7 @@ import Navbar from '../common/NavBar'
 const Payments = () => {
   return (
     <>
-          <div className=''>
-              <Navbar />
-          </div>
+          
 
           <div className=''>
               <CreditCard />
