@@ -95,18 +95,18 @@ const SubtotalCard = ({ subtotal, vat, total }) => {
       <div className="mb-4">
         <div className="flex justify-between mb-2">
           <p className="text-gray-600">Subtotal</p>
-          <p className="text-gray-800">${subtotal}</p>
+          <p className="text-gray-800">Rs.{subtotal}</p>
         </div>
         <div className="flex justify-between">
           <p className="text-gray-600">VAT (12%)</p>
-          <p className="text-gray-800">${vat}</p>
+          <p className="text-gray-800">Rs.{vat}</p>
         </div>
       </div>
       <hr className="my-4" />
       <div className="flex items-center justify-between">
         <p className="text-xl font-semibold text-gray-800">Total</p>
         <div>
-          <p className="text-2xl font-semibold text-blue-600">${total} USD</p>
+          <p className="text-2xl font-semibold text-blue-600">Rs.{total}</p>
         </div>
       </div>
       <Link to="/payment" className="block w-full py-2 mt-6 text-center text-white bg-blue-500 rounded-md hover-bg-blue-600">
