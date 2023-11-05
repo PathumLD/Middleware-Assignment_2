@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import register from '../assets/register.jpg';
 import logo from '../assets/logo.png';
 import Validation from './RegisterValidation';
+import axios from 'axios';
 
 export default function Register() {
 
@@ -13,6 +14,8 @@ export default function Register() {
     password: ''
   })
 
+  const navigate = useNavigate();
+
   const [errors, setErrors] = useState({})
 
   const handleInput = (event) => {
@@ -22,6 +25,14 @@ export default function Register() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setErrors(Validation(values));
+    if(errors.name === "" && errors.phone === "" && errors.email === "" && errors.password === "") {
+      axios.post('http://localhost:8081/register', values)
+      .then(res => {
+        // console.log(res));
+        navigate('/login');
+      })
+      .catch(res => console.log(err));
+    }
   }
 
   return (

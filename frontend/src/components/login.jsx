@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import login from '../assets/login.jpg';
 import logo from '../assets/logo.png';
 import Validation from './LoginValidation';
+import axios from 'axios';
 
 export default function Login() {
 
@@ -10,6 +11,8 @@ export default function Login() {
     email: '',
     password: ''
   })
+
+  const navigate = useNavigate();
 
   const [errors, setErrors] = useState({})
 
@@ -20,6 +23,19 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setErrors(Validation(values));
+    if(errors.email === "" && errors.password === "") {
+      axios.post('http://localhost:8081/login', values)
+      .then(res => {
+        // console.log(res));
+        if(res.data === "Success") {
+          navigate('/home');
+        } else{
+          alert("Invalid Email or Password");
+        }
+
+      })
+      .catch(res => console.log(err));
+    }
   }
 
   return (

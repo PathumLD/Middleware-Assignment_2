@@ -7,6 +7,7 @@ import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
 import Services from './components/services';
 import Bills from './components/bills';
+import Home from './components/Home';
 
 // function App() {
 //   const [count, setCount] = useState(0)
@@ -24,6 +25,7 @@ const App =() => (
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element = {<Register/>} />
       <Route path="/forgot-password" element = {<ForgotPassword/>} />
+      <Route path="/home" element = {<Home/>} />
       <Route path ="/" element={<Sidebar/>} />
       <Route path = "/services" element={<Services/>} />
       <Route path = "/bills" element={<Bills/>} />
