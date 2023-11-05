@@ -8,7 +8,7 @@ export default function services() {
   return (
     <div className="w-[86%]" style={{ marginRight: "20px", marginLeft: "7%",  textAlign: "center" }}>
       {/* Logo and Navigation Container */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex justify-between items-center mb-6">
         <div>
           <img src={logo} alt="Logo" className="w-36 h-36" />
         </div>
@@ -62,8 +62,8 @@ export default function services() {
           </form>
         </div>
 
-        <div className="relative mt-2 ml-8 overflow-x-auto shadow-md sm:rounded-b-lg">
-          <table className="w-full text-sm text-left text-gray-500 ">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-b-lg ml-8 mt-2">
+          <table className="w-full text-sm text-left text-gray-500  ">
             <thead className="text-xs text-[#374151] uppercase bg-gray-50 ">
               <tr>
                 <th scope="col" className="px-6 py-3">
@@ -90,7 +90,7 @@ export default function services() {
 
                 <td className="px-4 py-4">
                   <div className="">
-                    <Link to = '/cartitem'
+                    <button
                       type="button"
                       className="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 
                     rounded-md px-2 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
@@ -109,7 +109,7 @@ export default function services() {
                       >
                         Activate
                       </div>
-                    </Link>
+                    </button>
 
                     <button
                       type="button"
@@ -143,7 +143,7 @@ export default function services() {
 
                 <td className="px-4 py-4">
                   <div className="">
-                    <Link to = '/cartitem'
+                    <button
                       type="button"
                       className="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 
                     rounded-md px-2 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
@@ -162,7 +162,7 @@ export default function services() {
                       >
                         Activate
                       </div>
-                    </Link>
+                    </button>
 
                     <button
                       type="button"
@@ -196,7 +196,7 @@ export default function services() {
 
                 <td className="px-4 py-4">
                   <div className="">
-                    <Link to = '/cartitem'
+                    <button
                       type="button"
                       className="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 
                     rounded-md px-2 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
@@ -215,7 +215,7 @@ export default function services() {
                       >
                         Activate
                       </div>
-                    </Link>
+                    </button>
 
                     <button
                       type="button"
@@ -249,7 +249,7 @@ export default function services() {
 
                 <td className="px-4 py-4">
                   <div className="">
-                    <Link to = '/cartitem'
+                    <button
                       type="button"
                       className="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 
                     rounded-md px-2 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
@@ -268,7 +268,7 @@ export default function services() {
                       >
                         Activate
                       </div>
-                    </Link>
+                    </button>
 
                     <button
                       type="button"
@@ -302,7 +302,7 @@ export default function services() {
 
                 <td className="px-4 py-4">
                   <div className="">
-                    <Link to = '/cartitem'
+                    <button
                       type="button"
                       className="text-white focus:ring-4 focus:outline-none focus:ring-blue-300 
                     rounded-md px-2 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 "
@@ -321,7 +321,7 @@ export default function services() {
                       >
                         Activate
                       </div>
-                    </Link>
+                    </button>
 
                     <button
                       type="button"
